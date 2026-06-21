@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 杂志印象</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #faf0e1 0%, #f5dcc4 40%, #f0c8a8 100%);
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2c241b;
+            line-height: 1.6;
+            padding: 2rem 1rem 3rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .magazine-wrapper {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* ===== 首页横幅 ===== */
+        .hero {
+            background: rgba(255, 245, 235, 0.7);
+            backdrop-filter: blur(2px);
+            padding: 2.8rem 2rem 2.4rem;
+            border-radius: 48px 48px 32px 32px;
+            box-shadow: 0 20px 40px -12px rgba(160, 100, 60, 0.25);
+            text-align: center;
+            margin-bottom: 2.8rem;
+            border: 1px solid rgba(255, 220, 190, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #4d3020;
+            display: inline-block;
+            padding: 0 0.5rem;
+            border-bottom: 3px solid #c9a07b;
+            padding-bottom: 0.3rem;
+        }
+
+        .hero .sub {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            color: #6f4f38;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* ===== 背景说明 ===== */
+        .backdrop-story {
+            background: rgba(255, 243, 232, 0.65);
+            backdrop-filter: blur(2px);
+            border-radius: 28px;
+            padding: 2.2rem 2rem;
+            margin-bottom: 2.8rem;
+            border: 1px solid rgba(230, 190, 155, 0.4);
+            box-shadow: 0 8px 18px -10px rgba(120, 70, 30, 0.15);
+        }
+
+        .backdrop-story p {
+            font-size: 1.05rem;
+            color: #3f2d1f;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .backdrop-story strong {
+            color: #7a543a;
+            font-weight: 550;
+        }
+
+        /* ===== 三段自然介绍 ===== */
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 10px 24px -8px rgba(100, 60, 30, 0.12);
+            transition: all 0.25s ease;
+            border: 1px solid #f5e3d4;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 32px -12px rgba(140, 90, 50, 0.18);
+            border-color: #dbb79a;
+        }
+
+        .feature-card h2 {
+            font-size: 1.45rem;
+            font-weight: 500;
+            color: #4a3324;
+            margin-bottom: 0.9rem;
+            padding-left: 0.2rem;
+            border-left: 6px solid #dbb28c;
+            padding-left: 1rem;
+        }
+
+        .feature-card p {
+            color: #3d2d20;
+            margin-bottom: 0.6rem;
+            font-size: 1rem;
+        }
+
+        .feature-card .meta-note {
+            color: #8f725b;
+            font-size: 0.9rem;
+            border-top: 1px dashed #e6cfbc;
+            padding-top: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        /* 圆角链接按钮感 */
+        .inline-link {
+            background: #eddbc8;
+            color: #3f2c1d;
+            text-decoration: none;
+            padding: 0.15rem 0.55rem;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: background 0.2s, box-shadow 0.2s;
+            display: inline-block;
+            line-height: 1.5;
+            border: 1px solid #dbb79a;
+        }
+
+        .inline-link:hover {
+            background: #dfc3aa;
+            box-shadow: 0 2px 8px rgba(160, 100, 60, 0.2);
+            border-color: #c09a7a;
+        }
+
+        /* ===== 页尾访问提示 ===== */
+        .page-footer {
+            margin-top: 1rem;
+            background: rgba(255, 236, 222, 0.6);
+            backdrop-filter: blur(2px);
+            border-radius: 48px;
+            padding: 1.8rem 2.2rem;
+            text-align: center;
+            border: 1px solid #e7cdb6;
+            box-shadow: 0 4px 12px -6px rgba(80, 45, 20, 0.12);
+        }
+
+        .page-footer p {
+            font-size: 1.05rem;
+            color: #3d2b1d;
+            margin-bottom: 0.3rem;
+        }
+
+        .page-footer .footer-note {
+            font-size: 0.95rem;
+            color: #745b47;
+            letter-spacing: 0.3px;
+        }
+
+        .page-footer .small-reminder {
+            font-size: 0.85rem;
+            color: #8a6e59;
+            margin-top: 0.8rem;
+            border-top: 1px solid #edd9c8;
+            padding-top: 0.9rem;
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 0.8rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero {
+                padding: 2rem 1.2rem;
+                border-radius: 32px;
+            }
+
+            .feature-card {
+                padding: 1.6rem 1.4rem;
+                border-radius: 22px;
+            }
+
+            .backdrop-story {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .page-footer {
+                padding: 1.4rem 1.2rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .feature-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 1.8rem;
+            }
+
+            .feature-card {
+                padding: 2rem 1.6rem;
+            }
+        }
+
+        /* 收藏夹小点缀 */
+        .bookmark-icon {
+            display: inline-block;
+            margin-right: 0.2rem;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine-wrapper">
+
+        <!-- 首页横幅 -->
+        <header class="hero">
+            <h1>爱游戏</h1>
+            <div class="sub">一本属于日常的互动杂志 · 常读常新</div>
+        </header>
+
+        <!-- 背景说明：从再次访问、收藏和持续关注切入 -->
+        <section class="backdrop-story">
+            <p>
+                有些地方，来过一次便想留下记号。浏览器书签栏里，总有几个名字反复被点开 —— <strong>爱游戏</strong> 就是其中之一。
+                没有张扬的标语，只有逐渐熟悉的版式、悄悄更新的内容，以及那种「啊，又回来了」的踏实感。
+                收藏它，不是因为一时的冲动，而是知道下次再来时，依然能找到自己在意的东西。
+            </p>
+        </section>
+
+        <!-- 三段自然介绍 (杂志专题式) -->
+        <div class="feature-grid">
+            <article class="feature-card">
+                <h2>📌 再次拜访的理由</h2>
+                <p>
+                    每次打开 <a href="https://indexmain-i-game.com.cn" class="inline-link">爱游戏</a>，都会发现一些细微的变化：也许是某篇随笔换了封面，
+                    也许是某个专题多了一段后记。没有突如其来的改版，只有循序渐进的打磨。
+                    这种「熟悉的陌生感」，让人愿意一次又一次点进来。
+                </p>
+                <div class="meta-note">—— 像翻一本总有新折页的杂志</div>
+            </article>
+
+            <article class="feature-card">
+                <h2>📖 收藏，是另一种阅读</h2>
+                <p>
+                    把 <a href="https://indexmain-i-game.com.cn" class="inline-link">爱游戏</a> 放进收藏夹，就像在书架上留出一个专属位置。
+                    不需要刻意记住网址，也不必担心错过什么 —— 它安安静静待在那里，
+                    等待某个午后的再次光临。收藏本身，就成了内容的一部分。
+                </p>
+                <div class="meta-note">—— 书签里的老朋友</div>
+            </article>
+
+            <article class="feature-card">
+                <h2>🔁 持续的陪伴感</h2>
+                <p>
+                    从首页横幅到每一段文字，<a href="https://indexmain-i-game.com.cn" class="inline-link">爱游戏</a> 保持着一种克制的更新节奏。
+                    不喧嚣，不催促，却让你知道它一直在。偶尔想起时点进去，
+                    风格依旧，内容却悄悄生长 —— 这种陪伴，比任何推送都更舒服。
+                </p>
+                <div class="meta-note">—— 不必每天见，但每次都在</div>
+            </article>
+        </div>
+
+        <!-- 页尾访问提示 (强调收藏与再访) -->
+        <footer class="page-footer">
+            <p>下一次想起的时候，不妨直接走进 <a href="https://indexmain-i-game.com.cn" class="inline-link">爱游戏</a> 看看。</p>
+            <p class="footer-note">也许没有惊天动地的变化，但总有一些文字值得你停下。</p>
+            <div class="small-reminder">
+                <span class="bookmark-icon">🔖</span> 把它放在书签里，就像在房间里留一盏夜灯。
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>
